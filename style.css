@@ -1,0 +1,166 @@
+*, *::after, *::before{
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	background: black;
+	color: white;
+	font-family: Arial;
+	text-align: center;
+	min-height: 100vh;
+}
+
+#angry_face{
+	font-size: 100px;
+	cursor: pointer;
+	user-select: none;
+}
+.level{
+	display: none;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+.bigbtn {
+    background: lightblue;
+    width: max(50%, 400px);
+    margin: auto;
+    padding: 50px;
+    font-size: 30px;
+    border-radius: 8px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.bigbtn:hover{
+	opacity: 0.8;
+}
+.bigbtn:active{
+	opacity: 0.5;
+}
+.header{
+	font-size: 60px;
+}
+.desc{
+	color: lightgray;
+	font-size: 28px;
+	margin: 0 0 50px 0;	
+	display: inline-block;
+}
+table, tr, td, th{
+	border: 5px solid transparent;
+}
+tr{
+	border-bottom: 1px solid black;
+}
+#task_manager tr:first-of-type, #files tr:first-of-type{
+	background: lightgray;
+}
+#task_manager_cont, #files_cont{
+	background: white;
+	color: black;
+	padding: 20px;
+	text-align: left;
+}
+#task_manager_cont > span, #files_cont > span{
+	font-size: 18px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+#task_manager tr, #files tr{
+	cursor: pointer;
+}
+.btn{
+	background: #3d3d3d;
+	margin:  10px;
+	padding: 20px;
+	font-size: 18px;
+	border-radius: 8px;
+	color: white;
+	border: 1px solid white;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+.btn:hover{
+	opacity: 0.8;
+}
+.btn:active{
+	opacity: 0.5;
+}
+.invert{
+	filter: invert(1);
+}
+#lvl3 img{
+	cursor: pointer;
+}
+html{
+	background: black;
+}
+#files tr{
+	transition: 0.2s;
+}
+#files tr:hover{
+	background: #d6d6d6;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}
+#progress, #rate_admins{
+	background: white;
+	color: black;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+}
+#antivirus_pic{
+	margin-right: auto;
+	cursor: pointer;
+}
+.orange{
+	color: orange;
+}
+#starrating{
+	font-size: 28px;
+	margin-top: 20px;
+}
+#starrating .fa{
+	cursor: pointer;
+}
+#likedislike button{
+	background: white;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid black;
+	border-radius: 8px;
+	cursor: pointer;
+}
+#likedislike button.selected{
+	background: #3a7adf;
+	color: white;
+}
+#lvl6_cont{
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+	width: 100%;
+}
+#language{
+	background: black;
+	border: 1px solid white;
+	padding: 10px;
+	border-radius: 8px;
+	color: white;
+	font-size: 18px;
+}

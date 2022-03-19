@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Virus Remover Game</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+	<div id="dead" style="display: none" class="level">
+		<h1 class="header">You died</h1>
+		<h2 id="desc">Loading Message</h2>
+		<button class="bigbtn" onclick = "location.reload()">Try again?</button>
+		
+	</div>
+	<div id="lvl0" class="level" style="display: flex;">
+		<h1 class="header">Virus Remover</h1>
+		<h2 class="desc">By Andrew Chen, Matthew Hou, and Ryan Tang</h2>
+		<button class="bigbtn" onclick = "next_level()">Let's play!</button>
+	</div>
+	<div id ="lvl1" class="level">
+		<h1 class="header">Oh no, there seems to be a virus on your computer!</h1>
+		<h2 class="desc">Let's strike it down with anger!!!</h2>
+		<span id="angry_face">😐</span><br><span id="anger_meter">Anger Meter: 0</span>
+	</div>
+	<div id ="lvl2" class="level">
+		<h1 class="header">Let's try something different...</h1>
+		<h2 class="desc">Let's try deleting it via Task Manager</h2>
+		<button style="cursor: pointer;" onclick = "$('#task_manager_cont').toggle()" class="btn">Launch Task manager</button>
+		<div id="task_manager_cont" style="display: none;">
+			<span>Task Manager, Choose the virus to delete</span>
+			<table id="task_manager">
+				<tr id="task_manager_header">
+					<th>Name</th>
+					<th>Package name</th>
+					<th>Creation Date</th>
+					<th>Downloaded From</th>
+					<th>Created By</th>
+					
+				</tr>
+				<tr data-id="1">
+					<td>Browser Assistant</td>
+					<td>Browser_Assistant.exe</td>
+					<td>March 12, 2022</td>
+					<td>https://googie.com</td>
+					<td>Googie LLC.</td>
+				</tr>
+				<tr data-id="2">
+					<td>Slack</td>
+					<td>slack.exe</td>
+					<td>May 17, 2019</td>
+					<td>https://slack.com</td>
+					<td>Slack Technologies, LLC</td>
+				</tr>
+				<tr data-id="3">
+					<td>Among Us</td>
+					<td>amongus.exe</td>
+					<td>March 14, 2022</td>
+					<td>https://entertainment.gov/amongus</td>
+					<td>Anonymous</td>
+				</tr>
+				<tr data-id="4">
+					<td>Super Sus - Who is the imposter?</td>
+					<td>DontDeleteImSus.app</td>
+					<td>Febuary 1, 2021</td>
+					<td>http://tap.io</td>
+					<td>John Adams LLC.</td>
+				</tr>
+				<tr data-id="5">
+					<td>Discord Haxs</td>
+					<td>HackServers.hack</td>
+					<td>March 17, 2022</td>
+					<td>https://hack_and_destroy_computers.com</td>
+					<td>The Administrator Corp.</td>
+				</tr>
+				<tr data-id="6">
+					<td>Todolist</td>
+					<td>todolist.exe</td>
+					<td>Febuary 17, 2022</td>
+					<td>https://todolister.ml</td>
+					<td>DevNotHacker Corp.</td>
+				</tr>
+			</table>
+			<button class="btn invert" onclick = "endproccess();">End process</button>
+		</div>
+	</div>
+	<div id = "lvl3" class = "level">
+		<h1 class="header">Huh? You can't seem to delete it.</h1>
+		<h2 class="desc">Weird. Let's try restarting</h2>
+		<img style = "display: none" id = "power" src = "assets/power.svg" onclick = "shutdown()" width=100>
+		<img onclick = "$('#power').toggle()" src = "assets/windows.svg" width=300></img>
+	</div>
+	<div id = "lvl4" class = "level">
+		<h1 class="header">I have the link to an anti-virus software here</h1>
+		<h2 class="desc">I wonder which one it is...</h2>
+		<button style="cursor: pointer;" onclick = "$('#files_cont').toggle()" class="btn">Launch File Explorer</button>
+		<div id="files_cont" style="display: none;">
+			<span>File Explorer. Double click to open link</span>
+			<table id="files">
+				<tr id="files_header">
+					<th>Domain Name</th>
+					<th>URL Scheme</th>
+					<th>File size</th>
+					<th>Has SSL Certificate?</th>					
+				</tr>
+				<tr data-id="1">
+					<td>download_free_RAM.com</td>
+					<td>http://</td>
+					<td>138 MB</td>
+					<td>Yes</td>
+				</tr>
+				<tr data-id="2">
+					<td>Begin_data_transfer.lol</td>
+					<td>http://</td>
+					<td>100 KB</td>
+					<td>Yes</td>
+				</tr>
+				<tr data-id="3">
+					<td>beans.com</td>
+					<td>https://</td>
+					<td>32 KB</td>
+					<td>No</td>
+				</tr>
+				<tr data-id="4">
+					<td>youtube.com/watch?v=dQw4w9WgXcQ</td>
+					<td>https://</td>
+					<td>200 MB</td>
+					<td>Yes</td>
+				</tr>
+				<tr data-id="5">
+					<td>hacking101.haha/evil</td>
+					<td>http://</td>
+					<td>3 GB</td>
+					<td>No</td>
+				</tr>
+				<tr data-id="6">
+					<td>shadyurl.com/begin_hacking_client_steal_DDR4</td>
+					<td>10 KB</td>
+					<td>Febuary 17, 2022</td>
+					<td>No</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="lvl5" class="level">
+		<div id="progress">
+			<h1>Downloading: Antivirus (<span id="progress_percent">0</span>%)</h1>
+			<div id="myProgress">
+  				<div id="myBar"></div>
+			</div>
+		</div>
+		<img src="/assets/antivirus.png" width=100 style="display: none;" id="antivirus_pic" style="margin-right: auto;cursor: pointer;">
+		<div id="rate_admins" style="display: none;">
+			<h1>This app has been blocked by <u>Administrator</u></h1>
+			<h2>Please rate us</h2>
+			<div id="likedislike">
+				<button data-id="like"><span class="fa fa-thumbs-up"></span> Like </button>
+				<button data-id="dislike"><span class="fa fa-thumbs-down"></span> Dislike </button>
+			</div>
+			<div id="starrating">
+				<span class="fa fa-star" data-id="1"></span>
+				<span class="fa fa-star" data-id="2"></span>
+				<span class="fa fa-star" data-id="3"></span>
+				<span class="fa fa-star" data-id="4"></span>
+				<span class="fa fa-star" data-id="5"></span>
+				
+			</div>
+			<button class="btn invert">Submit</button>
+		</div>
+	</div>
+	<div id="lvl6" class="level">
+		<h1 class="header">Let's try throwing the virus away</h1>
+		<h2 class="desc">To the trash can it goes!</h2>
+		<div id="lvl6_cont">
+			<img id="drag1" src="/assets/virus.png" draggable="true" ondragstart="drag(event)" width="100" style="float:left;">
+  			<div id="trash" ondrop="drop(event);next_level();" ondragover="allowDrop(event)" style="float:right;">
+				<img src = "/assets/trash.webp" width=100></img>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div id = "lvl7" class = "level">
+		<h1 class="header">It does not work</h1>
+		<h2 class="desc">Change your language</h2>
+		<select id = "language">
+			<option name = "CHINA">Chinese</option>
+			<option name="USSR">Russian</option>
+			<option name = "SPAIN">Spanish</option>
+			<option name = "FRANCE">French</option>
+			<option name = "BIN">Binary</option>
+		</select>
+		<button class="btn" onclick = "changel()">Submit</button>
+	</div>
+	<script src="script.js" defer></script>
+  </body>
+</html>
