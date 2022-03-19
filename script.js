@@ -32,7 +32,7 @@ onload = {
 			if (i == 0) {
 				i = 1;
 				var elem = document.getElementById("myBar");
-				var width = 0; //change later
+				var width = 0;
 				var id = setInterval(frame, 200);
 				function frame() {
 				$()
@@ -55,6 +55,9 @@ onload = {
 				die("You took too long to throw it away.")
 			}
 		}, 5000)
+	},
+	15:function(){
+		conf()
 	}
 }
 
@@ -173,4 +176,101 @@ function changel(){
 	else{
 		die("The virus was not afraid of your language.")
 	}
+}
+
+function scan(){
+		$("body").css("background-color", "#005075")
+		var i = 0;
+			if (i == 0) {
+				i = 1;
+				var elem = document.getElementById("bar_8");
+				var width = 0;
+				var id = setInterval(frame, 200);
+				function frame() {
+				$()
+						if (width >= 100) {
+							$("#progress2").fadeOut()
+							
+							$("#threat").show();
+							clearInterval(id);
+							i = 0;
+						} else {
+							width+=Math.floor(Math.random()*3)+1;
+							elem.style.width = width + "%";
+					$("#progress_percent2").html(width)
+						}
+				}
+			}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function conf() {
+	confetti(); // skipcq: JS-0125
+	//confetti.reset(); // skipcq: JS-0125
+	const duration = 1000;
+	const animationEnd = Date.now() + duration;
+	const defaults = {
+		startVelocity: 50,
+		spread: 1000,
+		ticks: 1000,
+		zIndex: 0,
+	};
+
+	function randomInRange(min, max) {
+		return Math.random() * (max - min) + min;
+	}
+
+	const interval = setInterval(function () {
+		let timeLeft = animationEnd - Date.now();
+
+		if (timeLeft <= 0) {
+			return clearInterval(interval);
+		}
+
+		const particleCount = 200 * (timeLeft / duration);
+		// since particles fall down, start a bit higher than random
+		confetti(
+			Object.assign({}, defaults, {
+				// skipcq: JS-0125
+				particleCount,
+				origin: {
+					x: randomInRange(0.1, 0.3),
+					y: Math.random() - 0.2,
+				},
+			})
+		);
+		confetti(
+			Object.assign({}, defaults, {
+				// skipcq: JS-0125
+				particleCount,
+				origin: {
+					x: randomInRange(0.7, 0.9),
+					y: Math.random() - 0.2,
+				},
+			})
+		);
+	}, 250);
 }
