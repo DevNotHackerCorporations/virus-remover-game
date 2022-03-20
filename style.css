@@ -276,3 +276,12 @@ html{
 	right: 100px;
 	top: 75vh;
 }
+#level_num{
+	position: fixed;
+	background: black;
+	padding: 20px;
+	border: 1px solid white;
+	bottom: 0px;
+	right: 0px;
+	width: 200px;
+}

@@ -57,6 +57,15 @@ onload = {
 			}
 		}, 5000)
 	},
+	9:function(){
+		$("body").css("background-color", "black")
+		setTimeout(()=>{
+			$("#lvl9 .bigbtn").attr("onclick", "next_level()")
+			$("#lvl9 .header").html("OMG THAT WAS FAKE")
+			$("#lvl9 .desc").html("You nearly got scammed")
+			
+		}, 5000)
+	},
 	15:function(){
 		conf()
 	}
@@ -88,6 +97,7 @@ function next_level(){
 	if (Object.keys(onload).includes(level.toString())){
 		onload[level.toString()]()
 	}
+	$("#level_num_span").html(level)
 }
 
 function dev_goto(id){
@@ -97,6 +107,7 @@ function dev_goto(id){
 	if (Object.keys(onload).includes(level.toString())){
 		onload[level.toString()]()
 	}
+	$("#level_num_span").html(level)
 
 }
 $("#task_manager tr").click((e)=>{

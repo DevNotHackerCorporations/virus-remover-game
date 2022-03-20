@@ -269,12 +269,20 @@
 			<button class = "btn" onclick = "next_level();">Click to remove</button>
 		</div>
 	</div>
-		<div id = "lvl8" class = "level">
-			<h1 class = "header">That was fake</h1>
-			<h2>Change Your Password</h2>
-		</div>
+	<div id = "lvl9" class = "level"> <!-- The fake one -->
+		<h1 class = "header">You have destroyed the virus!</h1>
+		<h2 class="desc">Way to go!</h2>
+		<button class="bigbtn" onclick="die('Oof, you fell right into the trap. That was fake.')">Claim your prize</button>
+	</div>
+	<div id = "lvl10" class = "level">
+		<h1 class = "header">That was fake</h1>
+		<h2>Change Your Password</h2>
+	</div>
 	<div id = "lvl15" class = "level">
 		<h1 class = "header">You have destroyed the virus!</h1>
+	</div>
+	<div id="level_num">
+		Level <span id="level_num_span">0</span>
 	</div>
 	<script src="script.js" defer></script>
   </body>
