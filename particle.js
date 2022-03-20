@@ -54,7 +54,7 @@ particlesJS("lvl-1", {
         },
         "move": {
             "enable": true,
-            "speed": 15, // change (+1 is actually quite fast btw)
+            "speed": 12, // change (+1 is actually quite fast btw)
             "direction": "none",
             "random": false,
             "straight": false,
