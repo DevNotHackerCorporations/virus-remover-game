@@ -222,7 +222,7 @@ html{
 	width: 35vw;
 	margin: 0;
 }
-#google_search:hover, #google_search:select {
+#google_search:hover, #google_search:focus {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     box-shadow: 0 1px 6px rgba(32,33,36,.5);
@@ -284,4 +284,42 @@ html{
 	bottom: 0px;
 	right: 0px;
 	width: 200px;
+}
+#lvl-1 .header{
+	display: flex;
+	align-items: center;
+	column-gap: 30px;
+}
+.input{
+	height: 50px;
+	width: 50%;
+	background: transparent;
+	border: 2px solid gray;
+	border-radius: 8px;
+	padding: 10px 20px;
+	outline: none;
+	color: white;
+	transition: 0.2s;
+}
+.input:focus{
+	border-color: white;
+}
+#lvl-1 *{
+	z-index: 2;
+}
+canvas.particles-js-canvas-el{
+	width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+	z-index:1 !important;
+}
+#lvl-1 *:not(canvas){
+	backdrop-filter: blur(10px);
+}
+#skip{
+	position: absolute;
+	bottom: 0px;
+	left: 0%;
 }

@@ -6,10 +6,12 @@
 	<meta name="viewport" content="width=device-width">
 	<title>Virus Remover Game</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
+	  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.3/dist/confetti.browser.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   </head>
   <body>
 	<div id="dead" style="display: none" class="level">
@@ -19,8 +21,13 @@
 		
 	</div>
 	<div id="lvl-1" class="level" style="display: flex;">
-		<h1 class="header">Virus Remover</h1>
+		<h1 class="header"><img src="/assets/virus.png" height=150> The No Virus Game</h1>
 		<h2 class="desc">By Andrew Chen, Matthew Hou, and Ryan Tang</h2>
+		<p style="font-size: 20px;max-width:max(500px, 50%);">
+			Oh no! Your computer has been infected with a DEADLY virus! What do you do? Join us on a game where you can beat levels and defeat the virus once and for all!
+			<br><br>
+			The No Virus Game is a level based game made in 5 days for a hackathon. You are free to modify this website's code for both commercial and private uses as long as you heed to the <a href="/LICENSE.txt" style="color:lightblue;text-decoration: none;" target="_blank">BSD License.</a> 
+		</p>
 		<button class="bigbtn" onclick = "next_level()">Let's play!</button>
 	</div>
 	<div id="lvl0" class="level" style="display: flex;"><!--How did we get here? free ram -->
@@ -37,6 +44,7 @@
 				Click
 		Fade out, next level.
 		-->
+		<button id = "skip" class = "btn" onclick = "next_level();">Skip</button>
 		<h1 class = "header step1">A couple hours earlier:</h1>
 		<img src="assets/noram.png" class="step2">
 		<h1 class = "step3">Uh oh...</h1>
@@ -276,8 +284,15 @@
 	</div>
 	<div id = "lvl10" class = "level">
 		<h1 class = "header">That was fake</h1>
-		<h2>Change Your Password</h2>
+		<h2 class="desc">Change Your Password</h2>
+		<input class="input" placeholder="Your new password" id = "password"></input>
+		<button class = "btn" onclick = "turninpswd()">Submit</button>
+		<h2 id = "fail" class = "desc" style="display:none">Password failed to change</h2>
 	</div>
+		<div id = "lvl11" class = "level">
+			<h1 class = "header">Disconnect internet</h1>
+			<img src = "/assets/interneton.png" width = "100px" id = "internet" onclick = "toggleinternet()"></img>
+		</div>
 	<div id = "lvl15" class = "level">
 		<h1 class = "header">You have destroyed the virus!</h1>
 	</div>
@@ -285,5 +300,7 @@
 		Level <span id="level_num_span">0</span>
 	</div>
 	<script src="script.js" defer></script>
+	<script src="particle.js" defer></script> <!-- just testing -->
+	  
   </body>
 </html>

@@ -14,6 +14,7 @@ function drop(ev) {
 angry = 0;
 level = -2;
 progress = 0
+skipped = false
 onload = {
 	0: story,
 	3:function(){
@@ -61,6 +62,7 @@ onload = {
 		$("body").css("background-color", "black")
 		setTimeout(()=>{
 			$("#lvl9 .bigbtn").attr("onclick", "next_level()")
+			$("#lvl9 .bigbtn").html("Next Level")
 			$("#lvl9 .header").html("OMG THAT WAS FAKE")
 			$("#lvl9 .desc").html("You nearly got scammed")
 			
@@ -232,6 +234,7 @@ function typewriter(ms) {
 	});
 }
 async function story(){
+	$("#skip").show()
 	$("#lvl0 .mouse").show()
 	$("#lvl0 .step1").fadeIn()
 	await timeout(1000)
@@ -279,6 +282,10 @@ async function story(){
 	await timeout(500)
 	$("#downloadram .btn").css("opacity", "1")
 	for (let i = 0; i < 30; i++){
+		if (skipped){
+			$("body").css("background", "black")
+			return
+		}
 		$("body").css("background", getRandomColor())
 		$("#downloadram").css("background", getRandomColor())
 		$("#body").css("transform", "rotate("+randint(0, 360)+"deg)")
@@ -312,11 +319,33 @@ function randint(min, max) {
 
 
 
+function turninpswd(){
+	var password = document.getElementById("password").value;
+	if (password != ""){
+		$("#fail").css("display", "inline");
+		$("#fail").css("color", "red");
+		setTimeout(function(){next_level()}, 1000)
+	}
+	else{
+		die("You did not change your password")
+	}
+}
 
+function toggleinternet(){
+	if (document.getElementById("internet").src == 'https://virus-remover-game.ryantang11.repl.co/assets/interneton.png'){
+		document.getElementById("internet").src="/assets/internetoff.png";
+		setTimeout(function(){next_level()}, 1000);
+	}
+	else{
+		document.getElementById("internet").src="/assets/interneton.png";
+	}
+}
 
-
-
-
+$("#skip").click(()=>{
+	next_level()
+	skipped = true
+	$("body").css("background", "black")
+})
 
 
 
