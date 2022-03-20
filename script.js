@@ -110,7 +110,6 @@ function dev_goto(id){
 		onload[level.toString()]()
 	}
 	$("#level_num_span").html(level)
-
 }
 $("#task_manager tr").click((e)=>{
 	if (e.currentTarget.id === "task_manager_header"){
@@ -237,7 +236,7 @@ async function story(){
 	$("#skip").show()
 	$("#lvl0 .mouse").show()
 	$("#lvl0 .step1").fadeIn()
-	await timeout(1000)
+	await timeout(500)
 	$("#lvl0 .step2").slideDown()
 	await timeout(1000)
 	$("#lvl0 .step3").fadeIn()
@@ -259,28 +258,29 @@ async function story(){
 	})
 	await timeout(500)
 	$("#google").html("").css("height", "406px")
-	await timeout(500)
+	await timeout(1000)
 	$("#google").hide()
 	$("#search_res").show().css("min-height", "406px")
-	await timeout(500)
+	await timeout(1000)
 	$("#lvl0 .mouse").animate({
 		"left":window.innerWidth * 0.125 +50,
 		"top":"165px"
 	})
-	await timeout(1000)
+	await timeout(1500)
 	$("#search_res").html("")
-	await timeout(1000)
+	await timeout(1500)
 	$("#search_res").hide()
 	$("#downloadram").show()
-	await timeout(500)
+	await timeout(1000)
 	$("#lvl0 .mouse").animate({
 		"left":"50%",
 		"top":"300px"
 	})
 	await timeout(1000)
 	$("#downloadram .btn").css("opacity", "0.8")
-	await timeout(500)
+	await timeout(1000)
 	$("#downloadram .btn").css("opacity", "1")
+	await timeout(2000)
 	for (let i = 0; i < 30; i++){
 		if (skipped){
 			$("body").css("background", "black")
@@ -346,8 +346,13 @@ $("#skip").click(()=>{
 	skipped = true
 	$("body").css("background", "black")
 })
-
-
+// just run this function when you want the music to play :)
+function play_background(){
+	audio = document.createElement("audio")
+	audio.src = "assets/background.mp3"
+	audio.loop = true
+	audio.play()
+}
 
 
 

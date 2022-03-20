@@ -323,3 +323,16 @@ canvas.particles-js-canvas-el{
 	bottom: 0px;
 	left: 0%;
 }
+.center_text{
+	display: inline-flex;
+	align-items: center;
+	column-gap: 20px;
+}
+#place{
+	background: black;
+	border: 1px solid white;
+	padding: 10px;
+	border-radius: 8px;
+	color: white;
+	font-size: 18px;
+}
