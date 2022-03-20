@@ -12,9 +12,10 @@ function drop(ev) {
 	ev.target.appendChild(document.getElementById(data));
 }
 angry = 0;
-level = -1;
+level = -2;
 progress = 0
 onload = {
+	0: story,
 	3:function(){
 		$("body").css("background-color", "#005075")
 		setTimeout(()=>{
@@ -202,10 +203,101 @@ function scan(){
 				}
 			}
 }
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+function typewriter(ms) {
+	let i = 0;
+	let text = "Download free RAM for computer"
+    return new Promise(resolve => {
+		let j = setInterval(()=>{
+		$("#google_search").val($("#google_search").val() + text[i])
+		i += 1
+		if (i >= text.length){
+			resolve("done")
+			clearInterval(j)
+		}
+	}, 100)
+	});
+}
+async function story(){
+	$("#lvl0 .mouse").show()
+	$("#lvl0 .step1").fadeIn()
+	await timeout(1000)
+	$("#lvl0 .step2").slideDown()
+	await timeout(1000)
+	$("#lvl0 .step3").fadeIn()
+	await timeout(2000)
+	$("#lvl0 :is(.step1, .step2, .step3)").fadeOut()
+	await timeout(700)
+	$("#google").fadeIn()
+	await timeout(800)
+	$("#lvl0 .mouse").animate({
+		"left":"50vw",
+		"top":"250px"
+	})
+	await timeout(1000)
+	await typewriter()
+	
+	$("#lvl0 .mouse").animate({
+		"left":window.innerWidth / 2 - 100,
+		"top":"310px"
+	})
+	await timeout(500)
+	$("#google").html("").css("height", "406px")
+	await timeout(500)
+	$("#google").hide()
+	$("#search_res").show().css("min-height", "406px")
+	await timeout(500)
+	$("#lvl0 .mouse").animate({
+		"left":window.innerWidth * 0.125 +50,
+		"top":"165px"
+	})
+	await timeout(1000)
+	$("#search_res").html("")
+	await timeout(1000)
+	$("#search_res").hide()
+	$("#downloadram").show()
+	await timeout(500)
+	$("#lvl0 .mouse").animate({
+		"left":"50%",
+		"top":"300px"
+	})
+	await timeout(1000)
+	$("#downloadram .btn").css("opacity", "0.8")
+	await timeout(500)
+	$("#downloadram .btn").css("opacity", "1")
+	for (let i = 0; i < 30; i++){
+		$("body").css("background", getRandomColor())
+		$("#downloadram").css("background", getRandomColor())
+		$("#body").css("transform", "rotate("+randint(0, 360)+"deg)")
+		$("#downloadram").css("transform", "rotate("+randint(0, 360)+"deg)")
+		$("#downloadram h1").css("transform", "rotate("+randint(0, 360)+"deg)")
+		$("#downloadram h2").css("transform", "rotate("+randint(0, 360)+"deg)")
+		$("#downloadram .btn").css("transform", "rotate("+randint(0, 360)+"deg)")
+		$("#downloadram h1").css("color", getRandomColor())
+		$("#downloadram h2").css("color", getRandomColor())
+		$("#downloadram .btn").css("background", getRandomColor())
+		$("#downloadram .btn").css("color", getRandomColor())
+		$("#downloadram .btn").css("border-color", getRandomColor())
+		await timeout(300)
+	}
+	await timeout(2000)
+	$("body").css("background", "black")
+	next_level()
+}
 
-
-
-
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+function randint(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
 
 
 

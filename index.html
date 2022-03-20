@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel = "icon" href="/assets/virus.png"></link>
 <html>
   <head>
 	<meta charset="utf-8">
@@ -17,10 +18,56 @@
 		<button class="bigbtn" onclick = "dev_goto(0)">Try again?</button>
 		
 	</div>
-	<div id="lvl0" class="level" style="display: flex;">
+	<div id="lvl-1" class="level" style="display: flex;">
 		<h1 class="header">Virus Remover</h1>
 		<h2 class="desc">By Andrew Chen, Matthew Hou, and Ryan Tang</h2>
 		<button class="bigbtn" onclick = "next_level()">Let's play!</button>
+	</div>
+	<div id="lvl0" class="level" style="display: flex;"><!--How did we get here? free ram -->
+		<!--
+		Text: a couple hours earlier
+			Fade out 2 seconds later
+		Picture that shows a full RAM 
+		Text that says Uh oh fades in 1 second later
+			Both fade out in 2 seconds
+		Google fades in
+		"Download free RAM"
+		Clicks on one link
+			The link has "download" on it
+				Click
+		Fade out, next level.
+		-->
+		<h1 class = "header step1">A couple hours earlier:</h1>
+		<img src="assets/noram.png" class="step2">
+		<h1 class = "step3">Uh oh...</h1>
+		<div id="google">
+			<img height=100 src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
+			<input id="google_search" disabled>
+			<div>
+				<button>Google Search</button>
+				<button>I'm Feeling Lucky</button>
+			</div>
+		</div>
+
+		<div id="search_res">
+			<div class="head">
+				<img width=100 src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
+				<input id="google_search_2" disabled value="Download free RAM for computer">
+			</div>
+			<div class="divider">
+				<div class="magall"><i class="fa fa-search"></i> &nbsp;All</div>
+			</div>
+			<div style="margin-right: auto;text-align: left;width:550px;">
+				<a href="javascript:void(0)" style="color:#1a0dab;text-decoration: none;font-size:20px;">Download free RAM!</a>
+				<p>We totally are not going to download a virus onto your computer</p>
+			</div>
+		</div>
+		<div id="downloadram">
+			<h1>DOWNLOAD RAM HERE</h1>
+			<h2>totally not a scam</h2>
+			<button class="btn">DOWNLOAD</button>
+		</div>
+		<img src="/assets/mouse.png" class="mouse">
 	</div>
 	<div id ="lvl1" class="level">
 		<h1 class="header">Oh no, there seems to be a virus on your computer!</h1>
@@ -222,6 +269,10 @@
 			<button class = "btn" onclick = "next_level();">Click to remove</button>
 		</div>
 	</div>
+		<div id = "lvl8" class = "level">
+			<h1 class = "header">That was fake</h1>
+			<h2>Change Your Password</h2>
+		</div>
 	<div id = "lvl15" class = "level">
 		<h1 class = "header">You have destroyed the virus!</h1>
 	</div>
