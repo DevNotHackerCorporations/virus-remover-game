@@ -347,19 +347,44 @@ $("#skip").click(()=>{
 	$("body").css("background", "black")
 })
 // just run this function when you want the music to play :)
+audio = document.createElement("audio")
+audio.src = "assets/background.mp3"
+audio.loop = true
+audio.volume = Number($("#volume").val())/100;
+audio.id = "background";
 function play_background(){
-	audio = document.createElement("audio")
-	audio.src = "assets/background.mp3"
-	audio.loop = true
 	audio.play()
 }
 
+function lvl10submit(){
+	var folder = document.getElementById("place").value;
+	if (folder == "assets (138 MB)"){
+		next_level();
+	}
+	else{
+		die("You searched the wrong folder.");
+	}
+}
+function change_audio(){
+	audio.volume = Number($("#volume").val())/100;
+}
+$("#volume").change(change_audio)
+$("#volume").on("input", change_audio) // Why, Firefox, IE?
 
-
-
-
-
-
+async function add_fetch_files(){
+	for (let i = 1;i < 7;i++){
+		file = await fetch("fake/"+i+".py")
+		file = await file.text()
+		$("#fakefile"+i).html(`<h1>File #${i}</h1><pre><code class="language-python"></code></pre>`)
+		$("#fakefile"+i+" code").text(file)
+	}
+	hljs.highlightAll()
+}
+add_fetch_files()
+$("#viruses tr").click((e)=>{
+	let el = e.currentTarget
+	$("#fakefile"+$(el).data("id")).toggle()
+})
 
 
 

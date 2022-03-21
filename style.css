@@ -55,21 +55,21 @@ table, tr, td, th{
 tr{
 	border-bottom: 1px solid black;
 }
-#task_manager tr:first-of-type, #files tr:first-of-type{
+#task_manager tr:first-of-type, #files tr:first-of-type, #virus_header{
 	background: lightgray;
 }
-#task_manager_cont, #files_cont{
+#task_manager_cont, #files_cont, #virus_cont{
 	background: white;
 	color: black;
 	padding: 20px;
 	text-align: left;
 }
-#task_manager_cont > span, #files_cont > span{
+#task_manager_cont > span, #files_cont > span, #virus_cont > span{
 	font-size: 18px;
 	display: inline-block;
 	margin-bottom: 10px;
 }
-#task_manager tr, #files tr{
+#task_manager tr, #files tr, #virus_cont tr{
 	cursor: pointer;
 }
 .btn{
@@ -98,10 +98,10 @@ tr{
 html{
 	background: black;
 }
-#files tr{
+#files tr, #virus_cont tr{
 	transition: 0.2s;
 }
-#files tr:hover{
+#files tr:hover, #virus_cont tr:hover{
 	background: #d6d6d6;
 }
 
@@ -284,6 +284,7 @@ html{
 	bottom: 0px;
 	right: 0px;
 	width: 200px;
+	z-index:2;
 }
 #lvl-1 .header{
 	display: flex;
@@ -335,4 +336,13 @@ canvas.particles-js-canvas-el{
 	border-radius: 8px;
 	color: white;
 	font-size: 18px;
+}
+#virus_cont{
+	margin:30px;
+}
+code{
+	text-align: left;
+}
+#lvl11 .app code {
+    width: max(400px, 50vw);
 }

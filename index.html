@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <link rel = "icon" href="/assets/virus.png"></link>
 <html>
-  <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Virus Remover Game</title>
-	<link href="style.css" rel="stylesheet" type="text/css" />
-	  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.3/dist/confetti.browser.min.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Virus Remover Game</title>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+		
+		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.3/dist/confetti.browser.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-	  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  </head>
-  <body>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+		<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+		
+		<!-- HighlightJS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/default.min.css">
+		<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
+		<!-- and it's easy to individually load additional languages -->
+		<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/languages/go.min.js"></script>
+	</head>
+	<body>
 		<div id="dead" style="display: none" class="level">
 		<h1 class="header">You died</h1>
 		<h2 id="desc">Loading Message</h2>
@@ -48,7 +54,7 @@
 				Click
 		Fade out, next level.
 		-->
-		<button id = "skip" class = "btn" >Skip</button>
+		<button id = "skip" class = "btn" >Skip (NOT reccommended on first run)</button>
 		<h1 class = "header step1">A couple hours earlier:</h1>
 		<img src="assets/noram.png" class="step2">
 		<h1 class = "step3">Uh oh...</h1>
@@ -158,7 +164,7 @@
 		<h2 class="desc">I wonder which one it is...</h2>
 		<button style="cursor: pointer;" onclick = "$('#files_cont').toggle()" class="btn">Launch File Explorer</button>
 		<div id="files_cont" style="display: none;">
-			<span>File Explorer. Double click to open link</span>
+			<span>File Explorer. Double click to open link. (Remember this data. It may be useful later)</span>
 			<table id="files">
 				<tr id="files_header">
 					<th>Domain Name</th>
@@ -293,26 +299,96 @@
 		<button class = "btn" onclick = "turninpswd()">Submit</button>
 		<h2 id = "fail" class = "desc" style="display:none">Password failed to change</h2>
 	</div>
-		<div id = "lvl11" class = "level">
-			<h1 class = "header">Disconnect internet</h1>
-			<img src = "/assets/interneton.png" width = "100px" id = "internet" onclick = "toggleinternet()"></img>
+	<div id = "lvl11" class = "level">
+				
+		<h1 class = "header">Disconnect internet</h1>
+		<h2 class="desc">Turns out it's a Trojan, so it's our best chance!</h2>
+		<img style="cursor: pointer;" ondblclick = "$('#virus_cont').toggle()" src="/assets/file_explorer.png" height=50>
+		<div id="virus_cont" style="display: none;">
+			<span>File Explorer. Double click to file.</span>
+			<table id="viruses">
+				<tr id="virus_header">
+					<th>Name</th>
+					<th>Package name</th>
+					<th>Creation Date</th>
+					<th>Downloaded From</th>
+					<th>Created By</th>
+					
+				</tr>
+				<tr data-id="1">
+					<td>Browser Assistant</td>
+					<td>Browser_Assistant.exe</td>
+					<td>March 12, 2022</td>
+					<td>https://googie.com</td>
+					<td>Googie LLC.</td>
+				</tr>
+				<tr data-id="2">
+					<td>Slack</td>
+					<td>slack.exe</td>
+					<td>May 17, 2019</td>
+					<td>https://slack.com</td>
+					<td>Slack Technologies, LLC</td>
+				</tr>
+				<tr data-id="3">
+					<td>Among Us</td>
+					<td>amongus.exe</td>
+					<td>March 14, 2022</td>
+					<td>https://entertainment.gov/amongus</td>
+					<td>Anonymous</td>
+				</tr>
+				<tr data-id="4">
+					<td>Super Sus - Who is the imposter?</td>
+					<td>DontDeleteImSus.app</td>
+					<td>Febuary 1, 2021</td>
+					<td>http://tap.io</td>
+					<td>John Adams LLC.</td>
+				</tr>
+				<tr data-id="5">
+					<td>Discord Haxs</td>
+					<td>HackServers.hack</td>
+					<td>March 17, 2022</td>
+					<td>https://hack_and_destroy_computers.com</td>
+					<td>The Administrator Corp.</td>
+				</tr>
+				<tr data-id="6">
+					<td>Todolist</td>
+					<td>todolist.exe</td>
+					<td>Febuary 17, 2022</td>
+					<td>https://todolister.ml</td>
+					<td>DevNotHacker Corp.</td>
+				</tr>
+			</table>
 		</div>
-		<div id = "lvl12" class = "level">
-			<h1 class = "header">The virused escaped and you cannot find it anymore</h1>
-			<h2 class = "desc">Where do you look?</h2>
-			<select id = "place">
-				<option>/useless_stuff (132 KB)</option>
-				<option>/assets (139 MB)</option> <!--correct one, in the file explorer level, there was a virus that was 138 MB-->
-				<option>/work (95 MB)</option>
-				<option>/New Folder (35 MB)</option>
-			</select>
-				<button class = "btn">Submit</button>
-		</div>
+		<div id="fakefile1" class="app" style="display: none"></div>
+		<div id="fakefile2" class="app" style="display: none"></div>
+		<div id="fakefile3" class="app" style="display: none"></div>
+		<div id="fakefile4" class="app" style="display: none"></div>
+		<div id="fakefile5" class="app" style="display: none"></div>
+		<div id="fakefile6" class="app" style="display: none"></div>
+		
+		
+		<!--<img src = "/assets/interneton.png" width = "100px" id = "internet" onclick = "toggleinternet()"></img>-->
+	</div>
+	<div id = "lvl12" class = "level">
+		<h1 class = "header">The virused escaped and you cannot find it anymore</h1>
+		<h2 class = "desc">Where do you look?</h2>
+		<select id = "place">
+			<option>useless_stuff (132 KB)</option>
+			<option>assets (138 MB)</option> <!--correct one, in the file explorer level, there was a virus that was 138 MB-->
+			<option>work (95 MB)</option>
+			<option>New Folder (35 MB)</option>
+		</select>
+			<button class = "btn" onclick = "lvl10submit();">Submit</button>
+	</div>
+	<div id = "lvl13" class="level">
+		
+	</div>
 	<div id = "lvl15" class = "level">
 		<h1 class = "header">You have destroyed the virus!</h1>
 	</div>
 	<div id="level_num">
-		Level <span id="level_num_span">0</span>
+		Level <span id="level_num_span">0</span><br>
+		<label for="mus"><i class="fa fa-volume-up"></i> Music Volume </label><input name="mus" type = "range" style = "z-index:1000" min = "0" max = "100" value = "100" id = "volume"></input>
 	</div>
 	<script src="script.js" defer></script>
 	<script src="particle.js" defer></script> <!-- just testing -->
