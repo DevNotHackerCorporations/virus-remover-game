@@ -185,7 +185,7 @@
 					<td>Yes</td>
 				</tr>
 				<tr data-id="3">
-					<td>beans.com</td>
+					<td>tabopener.com</td>
 					<td>https://</td>
 					<td>2 TB</td>
 					<td>No</td>
@@ -203,7 +203,7 @@
 					<td>No</td>
 				</tr>
 				<tr data-id="6">
-					<td>shadyurl.com/begin_hacking_client_steal_DDR4</td>
+					<td>downloads.com/antivirus</td>
 					<td>http://</td>
 					<td>34 KB</td>
 					<td>No</td>
@@ -303,9 +303,13 @@
 				
 		<h1 class = "header">Disconnect internet</h1>
 		<h2 class="desc">Turns out it's a Trojan, so it's our best chance!</h2>
-		<img style="cursor: pointer;" ondblclick = "$('#virus_cont').toggle()" src="/assets/file_explorer.png" height=50>
+		<div>
+			<img style="cursor: pointer;margin-right: 20px;" ondblclick = "$('#virus_cont').toggle()" src="/assets/file_explorer.png" height=50>
+			<img style="cursor: pointer;margin-right: 20px;" ondblclick = "$('#the_terminal').toggle()" src="/assets/terminal.png" height=50>
+			<img src = "/assets/interneton.png" height = 50 id = "internet" style="display: none;cursor: pointer;" onclick = "next_level()"></img>
+		</div>
 		<div id="virus_cont" style="display: none;">
-			<span>File Explorer. Double click to file.</span>
+			<span>File Explorer. Click to view code.</span>
 			<table id="viruses">
 				<tr id="virus_header">
 					<th>Name</th>
@@ -365,20 +369,24 @@
 		<div id="fakefile4" class="app" style="display: none"></div>
 		<div id="fakefile5" class="app" style="display: none"></div>
 		<div id="fakefile6" class="app" style="display: none"></div>
-		
-		
-		<!--<img src = "/assets/interneton.png" width = "100px" id = "internet" onclick = "toggleinternet()"></img>-->
+		<div id="the_terminal" class="app" style="display: none;">
+			<h1>Terminal</h1>
+			<div id="terminal_log"></div>
+			<input id = "console" placeholder="> "></input>
+			<button class = "btn" onclick = "check11();">Run</button>
+		</div>
 	</div>
 	<div id = "lvl12" class = "level">
 		<h1 class = "header">The virused escaped and you cannot find it anymore</h1>
 		<h2 class = "desc">Where do you look?</h2>
 		<select id = "place">
+			<option selected>-</option>
 			<option>useless_stuff (132 KB)</option>
 			<option>assets (138 MB)</option> <!--correct one, in the file explorer level, there was a virus that was 138 MB-->
 			<option>work (95 MB)</option>
 			<option>New Folder (35 MB)</option>
 		</select>
-			<button class = "btn" onclick = "lvl10submit();">Submit</button>
+		<button class = "btn" onclick = "lvl10submit();">Submit</button>
 	</div>
 	<div id = "lvl13" class="level">
 		

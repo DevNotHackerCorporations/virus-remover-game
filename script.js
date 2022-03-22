@@ -362,7 +362,7 @@ function lvl10submit(){
 		next_level();
 	}
 	else{
-		die("You searched the wrong folder.");
+		die(`"1/4 chance" - Yuuki Sawanoi<br><br>Anyways, you got it wrong.`);
 	}
 }
 function change_audio(){
@@ -385,8 +385,21 @@ $("#viruses tr").click((e)=>{
 	let el = e.currentTarget
 	$("#fakefile"+$(el).data("id")).toggle()
 })
-
-
+function check11(){
+	if (!$("#console").val().trim()){
+		return
+	}
+	if ($("#console").val().trim() == "show_internet()"){
+		$("#internet").show()
+	}
+	$("#terminal_log").append(`<div class="term_msg">${$("#console").val()}</div>`)
+	$("#console").val("")
+}
+$("#console").keypress(e=>{
+	if (e.key === "Enter"){
+		check11()
+	}
+})
 
 
 function conf() {

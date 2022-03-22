@@ -336,6 +336,7 @@ canvas.particles-js-canvas-el{
 	border-radius: 8px;
 	color: white;
 	font-size: 18px;
+	text-align: center;
 }
 #virus_cont{
 	margin:30px;
@@ -345,4 +346,29 @@ code{
 }
 #lvl11 .app code {
     width: max(400px, 50vw);
+}
+#console{
+	height: 20px;
+	border: 0;
+	font-size: 20px;
+	font-family: monospace;
+	padding: 15px;
+	outline: none;
+}
+#console::placeholder{
+	color:dodgerblue;
+}
+.term_msg{
+	width: 100%;
+	text-align: left;
+	font-family: monospace;
+	font-size: 20px;
+	padding-left: 15px;
+}
+.term_msg::before{
+	color: dodgerblue;
+	content: "> ";
+}
+#terminal_log{
+	width: 100%;
 }
