@@ -13,6 +13,7 @@ function drop(ev) {
 }
 angry = 0;
 level = -2;
+restart = 0
 progress = 0
 skipped = false
 onload = {
@@ -128,7 +129,12 @@ $("#files tr").dblclick((e)=>{
 	}
 	if (Number($(e.currentTarget).data("id")) === 6){
 		next_level()
-	}else{
+	}
+	else if (Number($(e.currentTarget).data("id")) === 4){
+		open("https://youtube.com/watch?v=dQw4w9WgXcQ")
+		die("You just rickrolled yourself...")
+	}
+	else{
 		die("You just went to a bad website that may or may not have broke your computer...")
 	}
 })
@@ -398,6 +404,34 @@ function check11(){
 $("#console").keypress(e=>{
 	if (e.key === "Enter"){
 		check11()
+	}
+})
+
+ctrled = false
+alted = false
+deleted = false
+
+$(".key_el").click((e)=>{
+	let el = $(e.currentTarget)
+	switch (el.data("selected")==="yes"){
+		case false:
+			el.css("background-color", "#e0f3ff")
+			el.data("selected", "yes")
+			break
+		default:
+			el.css("background-color", "white")
+			el.data("selected", "no")
+		
+	}
+	if (el.html() === "Ctrl"){
+		ctrled = !ctrled
+	}else if (el.html() === "Alt"){
+		alted = !alted
+	}else if (el.html() === "Delete"){
+		deleted = !deleted
+	}
+	if (ctrled && alted && deleted){
+		next_level()
 	}
 })
 

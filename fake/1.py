@@ -4,7 +4,7 @@ import cryptography
 import time
 import requests
 
-netword.login(data={
+network.login(data={
 	login: cryptography.hash("Never gonna give you up"),
 	password: request.post("example.com/hack_password", {
 		username: network.name

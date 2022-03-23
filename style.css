@@ -372,3 +372,28 @@ code{
 #terminal_log{
 	width: 100%;
 }
+.key_row {
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+}
+.key_el {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    border-bottom-color: gray;
+    box-shadow: 1px 1px 1px gray;
+	transition: 0.2s;
+}
+.mainkey{
+	flex-grow: 10;
+}
+div#keyboard {
+    background: rgb(206 206 206);
+    padding: 5px;
+    border-radius: 8px;
+}
