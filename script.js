@@ -1,3 +1,4 @@
+timer = 0
 function allowDrop(ev) {
 	ev.preventDefault();
 }
@@ -18,6 +19,9 @@ progress = 0
 skipped = false
 onload = {
 	0: story,
+	1: function(){
+		timer = Date.now()	
+	},
 	3:function(){
 		$("body").css("background-color", "#005075")
 		setTimeout(()=>{
@@ -94,7 +98,12 @@ onload = {
 		$("#coins").show()
 	},
 	15:function(){
+		timer = ((Date.now()-timer) / 1000).toFixed(2)
+		$("#numsecs").html(timer+" seconds")
 		conf()
+		$("#copy").click(() =>{
+			navigator.clipboard.writeText("I destroyed the virus in "+timer+" seconds\nhttps://novirusgame.tk/");
+		})
 	}
 }
 
