@@ -406,3 +406,21 @@ div#keyboard {
 #lvl14_virus_err{
 	color: white;
 }
+#lvl15 table tr > td:first-of-type{
+	width: 100px;
+	font-weight: bolder;
+}
+/*#lvl15 table tr{
+	border: 1px solid white;
+}*/
+#lvl15 table tr td{
+	padding: 10px;
+}
+#lvl15 table tr:nth-of-type(even){
+	background: #2e2e2e;
+}
+#lvl15 table tr:nth-of-type(odd){
+	background: #121212;
+}
+#lvl15 table{
+}

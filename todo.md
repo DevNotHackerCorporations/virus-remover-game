@@ -3,5 +3,6 @@
 * [x] ctrl-alt-del level
 * [x] Mock code
 * [x] Level 12 harder
-* [ ] Level 10 harder
-* [ ] Summary of levels at end
+* [x] Level 10 harder
+* [x] Summary of levels at end
+* [ ] overflow: hidden; in the intro

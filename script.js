@@ -87,8 +87,8 @@ onload = {
 				clearInterval(o)
 			}
 			$("#lvl13_prog").html(prog)
-			prog += 1
-		}, 400)
+			prog += 1;
+		}, 40)
 	},
 	14:function(){
 		$("#coins").show()
@@ -296,12 +296,12 @@ async function story(){
 		"left":window.innerWidth * 0.125 +50,
 		"top":"165px"
 	})
-	await timeout(1500)
+	await timeout(1000)
 	$("#search_res").html("")
-	await timeout(1500)
+	await timeout(1000)
 	$("#search_res").hide()
 	$("#downloadram").show()
-	await timeout(1000)
+	await timeout(500)
 	$("#lvl0 .mouse").animate({
 		"left":"50%",
 		"top":"300px"
@@ -310,7 +310,7 @@ async function story(){
 	$("#downloadram .btn").css("opacity", "0.8")
 	await timeout(1000)
 	$("#downloadram .btn").css("opacity", "1")
-	await timeout(2000)
+	await timeout(100)
 	for (let i = 0; i < 30; i++){
 		if (skipped){
 			$("body").css("background", "black")
@@ -330,7 +330,7 @@ async function story(){
 		$("#downloadram .btn").css("border-color", getRandomColor())
 		await timeout(300)
 	}
-	await timeout(2000)
+	await timeout(1000)
 	$("body").css("background", "black")
 	next_level()
 }
@@ -513,6 +513,7 @@ function conf() {
 	}, 250);
 }
 num_coins = 0
+perclick = 1
 $("#lvl14 .bigbtn").click(()=>{
 	if (num_coins < 500){
 		$("#lvl14_err").show()
@@ -523,9 +524,9 @@ $("#lvl14 .bigbtn").click(()=>{
 	}
 })
 const steal_time = {
-	l100: 30,
+	l100: 20,
 	l200: 60,
-	l300: 90,
+	l300: 80,
 	l400: 120,
 	l500: 20
 }
@@ -537,7 +538,7 @@ const steal_msgs = {
 	l500: "The virus stole some money. Who said life was fair?"
 }
 $("#clicker").click(()=>{
-	num_coins += 1
+	num_coins += perclick
 	$("#coins .count").html(num_coins)
 	if (steal_time.hasOwnProperty("l"+num_coins)){
 		$("#lvl14_virus_err").html(steal_msgs["l"+num_coins])
@@ -550,4 +551,13 @@ $("#clicker").click(()=>{
 		}, 2000)
 	}
 
+})
+
+$("#mult").click(() =>{
+	if (num_coins >= 50){
+		perclick = 4;
+		num_coins -= 50;
+		num_coins = parseInt(num_coins/4)*4; //round so it hits the steal_time
+		$("#mult").hide();
+	}
 })
