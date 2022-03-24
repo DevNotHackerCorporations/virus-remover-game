@@ -69,6 +69,30 @@ onload = {
 			
 		}, 5000)
 	},
+	10:function(){
+		simp_virus = false
+		$("#simp_virus").show()
+		$("#simp_virus").click(()=>{
+			simp_virus = true
+			$('#simp_virus').remove()
+		})
+	},
+	13: function(){
+		let prog = 0
+		let o = setInterval(()=>{
+			if (prog >= 100){
+				if (level === 13){
+					die("The virus killed your computer")
+				}
+				clearInterval(o)
+			}
+			$("#lvl13_prog").html(prog)
+			prog += 1
+		}, 400)
+	},
+	14:function(){
+		$("#coins").show()
+	},
 	15:function(){
 		conf()
 	}
@@ -326,6 +350,11 @@ function randint(min, max) {
 
 
 function turninpswd(){
+	if (!simp_virus){
+		die("The virus was NOT sympathetic towards you. Maybe you missed something?")
+		return
+	}
+	
 	var password = document.getElementById("password").value;
 	if (password != ""){
 		$("#fail").css("display", "inline");
@@ -483,3 +512,42 @@ function conf() {
 		);
 	}, 250);
 }
+num_coins = 0
+$("#lvl14 .bigbtn").click(()=>{
+	if (num_coins < 500){
+		$("#lvl14_err").show()
+	}else{
+		$("#coins").hide()
+		next_level()
+		
+	}
+})
+const steal_time = {
+	l100: 30,
+	l200: 60,
+	l300: 90,
+	l400: 120,
+	l500: 20
+}
+const steal_msgs = {
+	l100: "The virus stole some money. Who said life was fair?",
+	l200: "The virus stole some money. Who said life was fair?",
+	l300: "The virus stole some money. Who said life was fair?",
+	l400: "The virus stole some money. Who said life was fair?",
+	l500: "The virus stole some money. Who said life was fair?"
+}
+$("#clicker").click(()=>{
+	num_coins += 1
+	$("#coins .count").html(num_coins)
+	if (steal_time.hasOwnProperty("l"+num_coins)){
+		$("#lvl14_virus_err").html(steal_msgs["l"+num_coins])
+		prev = num_coins;
+		num_coins -= steal_time["l"+num_coins]
+		delete steal_time["l"+prev]
+		$("#lvl14_virus_err").fadeIn()
+		setTimeout(()=>{
+			$("#lvl14_virus_err").fadeOut()
+		}, 2000)
+	}
+
+})

@@ -397,3 +397,12 @@ div#keyboard {
     padding: 5px;
     border-radius: 8px;
 }
+#lvl14_err{
+	color: red;
+	font-size: 24px;
+	margin: 20px;
+	display: none;
+}
+#lvl14_virus_err{
+	color: white;
+}

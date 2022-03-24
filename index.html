@@ -391,6 +391,7 @@
 	<div id = "lvl13" class="level">
 		<h1 class = "header">Your mouse does not work</h1>
 		<h2 class="desc">What shall you do?</h2>
+		<h1 style="font-family: monospace;color:red;">&gt; Browser_Assistant.exe has gained <span id="lvl13_prog">0</span>% control.</h1>
 		<!--Hi, whatcha doing snooping around our code?-->
 		<div id="keyboard">
 			<div class="key_row">
@@ -466,12 +467,27 @@
 			</div>
 		</div>
 	</div>
+	<div id = "lvl14" class = "level">
+		<h1 class = "header">Ok this is NOT working</h1>
+		<h1 class = "desc">Let's just go hire someone</h1>
+		<button class="bigbtn">Hire a professional (⏣ 500)</button>
+		<div id="lvl14_err">Not enough money</div>
+		<br><br><br>
+		<h1>To earn, click:</h1>
+		<span id="clicker" style="font-size: 96px;cursor:pointer;user-select: none;">🥫</span><br>
+		<div id="lvl14_virus_err" style="display: none;"></div>
+	</div>
 	<div id = "lvl15" class = "level">
 		<h1 class = "header">You have destroyed the virus!</h1>
 	</div>
 	<div id="level_num">
 		Level <span id="level_num_span">0</span><br>
 		<label for="mus"><i class="fa fa-volume-up"></i> Music Volume </label><input name="mus" type = "range" style = "z-index:1000" min = "0" max = "100" value = "100" id = "volume"></input>
+		<div id="simp_virus" style="display: none;">
+			<br>
+			<button style="background: transparent;color: gray;border:0;">Sympathetic Virus Mode</button>
+		</div>
+		<div id="coins" style="display: none;font-size:30px;"><span style="color: yellow;">⏣</span> <span class="count">0</span></div>
 	</div>
 	<script src="script.js" defer></script>
 	<script src="particle.js" defer></script> <!-- just testing -->
